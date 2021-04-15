@@ -1,5 +1,4 @@
-import Link from 'next/link'
-import { useRouter } from 'next/router'
+import Link from 'next/link';
 
 import { useTranslation } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
@@ -9,8 +8,7 @@ import { Footer } from '../components/Footer'
 
 const Homepage = () => {
 
-  const router = useRouter()
-  const { t } = useTranslation('common')
+  const { t } = useTranslation('common');
 
   return (
     <>
@@ -19,10 +17,18 @@ const Homepage = () => {
         <div>
           <Link
             href='/'
-            locale={router.locale === 'en' ? 'de' : 'en'}
+            locale={'en'}
           >
             <button>
-              {t('change-locale')}
+              {t('change-locale', { lng: 'en' })}
+            </button>
+          </Link>
+          <Link
+            href='/'
+            locale={'de'}
+          >
+            <button>
+              {t('change-locale', { lng: 'de' })}
             </button>
           </Link>
           <Link href='/second-page'>
