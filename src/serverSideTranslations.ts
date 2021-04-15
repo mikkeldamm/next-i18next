@@ -49,6 +49,12 @@ export const serverSideTranslations = async (
     [initialLocale]: {},
   }
 
+  if (typeof config.preload === 'object' && config.preload.length > 0) {
+    config.preload.forEach(_preloadLocale => {
+      initialI18nStore[_preloadLocale] = {};
+    });
+  }
+
   if (typeof config.fallbackLng === 'string') {
     initialI18nStore[config.fallbackLng] = {}
   }
